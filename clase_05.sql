@@ -74,7 +74,7 @@ FROM alumnos;
 SELECT nombre 
 FROM alumnos 
 ORDER BY nombre;
--- ORDER BY por defecto es en orden ascendente
+-- ORDER BY por defecto es en forma ascendente
 
 SELECT 
 DISTINCT nombre 
@@ -193,7 +193,7 @@ ORDER BY ciudad;
 
 SELECT ciudad, count(*) FROM alumnos
 GROUP BY ciudad
-ORDER BY 2 DESC;
+ORDER BY 2;
 -- ORDER BY puede usar números refiriendo a la posición
 -- del campo en nuestra proyección
 
@@ -204,7 +204,7 @@ WHERE sexo = 'f'
 GROUP BY ciudad
 ORDER BY 2 DESC;
 -- Obtenemos cuántas mujeres hay por ciudad
--- con los registros ordenados de mayor a menor por el conteo
+-- con los registros ordenados en forma descendente por el conteo
 
 SELECT ciudad, COUNT(*) AS no_alumnos
 FROM alumnos 
