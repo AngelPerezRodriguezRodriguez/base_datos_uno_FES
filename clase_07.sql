@@ -205,7 +205,7 @@ FROM alumnos;
 
 SELECT
 nombre,
-MID(nombre, 1, LOCATE(' ', nombre)) AS primer_nombre,
+MID(nombre, 1, LOCATE(' ', nombre) - 1) AS primer_nombre,
 MID(nombre, LOCATE(' ', nombre) + 1) AS segundo_nombre
 FROM alumnos;
 -- La intención es separar los nombres de los alumnos en dos columnas
@@ -215,7 +215,7 @@ SELECT
 nombre,
 IF(
 	LOCATE(' ', nombre) > 0, 
-    MID(nombre, 1, LOCATE(' ', nombre)),
+    MID(nombre, 1, LOCATE(' ', nombre) - 1),
     nombre
 ) AS primer_nombre, 
 IF(
