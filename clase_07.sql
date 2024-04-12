@@ -5,13 +5,16 @@ LENGTH()
 
 LOCATE(cadena_localizar, campo)
 LOCATE(cadena_localizar, campo, posicion_inicial)
+Regresan un índice.
 
 
 LEFT(campo, numero_caracteres)
 RIGHT(campo, numero_caracteres)
+Regresan una cadena.
 
 MID(campo, posicion_inicial)
 MID(campo, posicion_inicial, numero_caracteres)
+Regresan una cadena.
 
 
 IF(condicion, entonces, contrario)
@@ -26,7 +29,7 @@ LCASE()
 
 BINARY()
 Evaluamos la cadena de forma binaria, mas no por caracteres.
-Ej. 'aldo' no es lo mismo que 'ALDO'
+Ej. BINARY('aldo') no es lo mismo que BINARY('ALDO')
 
 
 CONCAT(valores)
@@ -127,7 +130,7 @@ FROM alumnos
 WHERE LOCATE('a', nombre, LOCATE('a', nombre) + 1) > 0;
 -- ... que tengan una segunda 'a' en el nombre
 
-select 
+SELECT 
 nombre,
 LOCATE('maria', nombre) AS maria
 FROM alumnos

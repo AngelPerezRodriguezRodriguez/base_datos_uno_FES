@@ -1,4 +1,37 @@
 USE biblioteca;
+/*
+LOAD DATA LOCAL INFILE
+'<ruta_archivo>'
+INTO TABLE escritor
+FIELDS TERMINATED BY ','
+ENCLOSED BY ''
+LINES TERMINATED BY '\r\n';
+
+
+INSERT INTO tabla <SELECT>;
+Inserciones a través de una consulta.
+
+INSERT INTO tabla VALUES (valores);
+Inserciones masivas.
+
+INSERT INTO tabla (campos) VALUES (valores_campos);
+Inserciones masivas.
+
+INSERT INTO tabla SET (campo = valor);
+Insersiones únicas.
+
+
+UPDATE tabla SET campo = valor;
+Actualiza todas las tuplas.
+
+
+DELETE FROM tabla;
+Borra todas las tuplas.
+
+
+TRUNCATE TABLE tabla;
+Vacía la tabla, reiniciamos el AUTO_INCREMENT y borra los índices.
+*/
 
 
 

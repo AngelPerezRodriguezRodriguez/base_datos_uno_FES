@@ -1,5 +1,26 @@
 USE colegio;
 /*
+SELECT DATABASE();
+SELECT USER();
+
+
+SELECT
+DISTINCT
+
+FROM
+WHERE
+
+GROUP BY
+HAVING
+
+ORDER BY
+
+LIMIT
+*/
+
+
+
+/*
 Cargamos el esquema y el estado inicial de la B.D. colegio
 a través de un único archivo que contiene ambas partes. 
 
@@ -9,11 +30,17 @@ tiene restricciones de integridad referencial.
 
 
 
-SELECT SYSDATE(), DATABASE(), USER();
+SELECT 
+DATABASE(), 
+USER();
 -- Obtenemos los datos de una función
 -- No son datos de ninguna tabla de la B.D. colegio
 
-SELECT NOW(), SYSDATE(), CURRENT_DATE(), CURRENT_TIME();
+SELECT 
+NOW(), 
+SYSDATE(), 
+CURRENT_DATE(), 
+CURRENT_TIME();
 /*
 * NOW() fecha y hora cuando la sentencia NOW() es ejecutada.
 En el ejemplo, la fecha y hora resultan ser iguales:
@@ -49,15 +76,21 @@ SELECT
 
 
 
-SHOW TABLES FROM colegio;
+SHOW TABLES 
+FROM colegio;
 
 DESC alumnos;
 
-SELECT * FROM alumnos;
+SELECT * 
+FROM alumnos;
 -- Proyección: 20 campos
 -- Selección: 808 registros
 
-SELECT nombre, ap_paterno, ap_materno, curp
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+curp
 FROM alumnos;
 -- Proyección: 4 campos
 -- Selección: 808 registros
@@ -82,12 +115,17 @@ FROM alumnos
 ORDER BY nombre;
 
 SELECT 
-DISTINCT nombre, ap_paterno 
+DISTINCT 
+nombre, 
+ap_paterno 
 FROM alumnos 
 ORDER BY nombre;
 
 SELECT 
-DISTINCT nombre, ap_paterno, ap_materno 
+DISTINCT 
+nombre, 
+ap_paterno, 
+ap_materno 
 FROM alumnos 
 ORDER BY nombre;
 -- A mayor número de campos proyectados con DISTINCT
@@ -132,14 +170,24 @@ ciudad = 'queretaro'
 ORDER BY nombre;
 -- ... que viven en 'queretaro'
 
-SELECT nombre, ap_paterno, ap_materno, sexo, ciudad 
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+sexo, 
+ciudad 
 FROM alumnos 
 WHERE sexo = 'f' AND 
 ciudad = 'queretaro' 
 ORDER BY nombre;
 -- Misma sentencia pero sin DISTINCT
 
-SELECT nombre, ap_paterno, ap_materno, sexo, ciudad 
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+sexo, 
+ciudad 
 FROM alumnos 
 WHERE sexo = 'f' OR 
 ciudad = 'queretaro' 
@@ -151,11 +199,13 @@ SELECT COUNT(*)
 FROM alumnos;
 -- Obtenemos el número de registros de la tabla
 
-SELECT DISTINCT sexo 
+SELECT 
+DISTINCT sexo 
 FROM alumnos
 ORDER BY sexo;
 
-SELECT sexo FROM alumnos 
+SELECT sexo 
+FROM alumnos 
 GROUP BY sexo
 ORDER BY sexo;
 -- Ambas sentencias anteriores son equivalentes
@@ -163,7 +213,9 @@ ORDER BY sexo;
 
 
 
-SELECT sexo, COUNT(*) 
+SELECT 
+sexo, 
+COUNT(*) 
 FROM alumnos 
 GROUP BY sexo
 ORDER BY sexo;
@@ -185,13 +237,19 @@ this is incompatible with sql_mode=only_full_group_by	0.000 sec
 
 
 
-SELECT ciudad, count(*) FROM alumnos
+SELECT 
+ciudad, 
+count(*) 
+FROM alumnos
 GROUP BY ciudad
 ORDER BY ciudad;
 -- Obtenemos cuántos alumnos hay por ciudad
 -- con los registros ordenados por ciudad
 
-SELECT ciudad, count(*) FROM alumnos
+SELECT 
+ciudad, 
+count(*) 
+FROM alumnos
 GROUP BY ciudad
 ORDER BY 2;
 -- ORDER BY puede usar números refiriendo a la posición
@@ -199,14 +257,19 @@ ORDER BY 2;
 
 
 
-SELECT ciudad, count(*) FROM alumnos
+SELECT 
+ciudad, 
+count(*) 
+FROM alumnos
 WHERE sexo = 'f'
 GROUP BY ciudad
 ORDER BY 2 DESC;
 -- Obtenemos cuántas mujeres hay por ciudad
 -- con los registros ordenados en forma descendente por el conteo
 
-SELECT ciudad, COUNT(*) AS no_alumnos
+SELECT 
+ciudad, 
+COUNT(*) AS no_alumnos
 FROM alumnos 
 WHERE sexo = 'f'
 GROUP BY ciudad
@@ -214,7 +277,9 @@ HAVING COUNT(*) >= 10
 ORDER BY 2 DESC;
 -- ... que superen las diez personas
 
-SELECT ciudad, COUNT(*) AS no_alumnos
+SELECT 
+ciudad, 
+COUNT(*) AS no_alumnos
 FROM alumnos 
 WHERE sexo = 'f'
 GROUP BY ciudad
@@ -222,7 +287,9 @@ HAVING COUNT(*) <= 10
 ORDER BY 2 DESC;
 -- ... que no sobrepasen las diez personas
 
-SELECT ciudad, COUNT(*)
+SELECT 
+ciudad, 
+COUNT(*)
 FROM alumnos
 WHERE sexo = 'f'
 GROUP BY ciudad
@@ -233,25 +300,41 @@ LIMIT 5;
 
 
 
-SELECT nombre, ap_paterno, ap_materno, curp
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+curp
 FROM alumnos
 WHERE LENGTH(curp) = 18;
 -- Alumnos con CURP de 18 caracteres
 
-SELECT nombre, ap_paterno, ap_materno, curp
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+curp
 FROM alumnos
 WHERE LENGTH(curp) = 18
 ORDER BY 2, 3, 1;
 -- ... con los registros ordenados por ap_paterno, ap_materno y nombre
 
-SELECT nombre, ap_paterno, ap_materno, curp
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+curp
 FROM alumnos
 WHERE LENGTH(curp) = 18 AND
 ciudad = 'queretaro'
 ORDER BY 2, 3, 1;
 -- ... que viven en 'queretaro'
 
-SELECT nombre, ap_paterno, ap_materno, curp
+SELECT 
+nombre, 
+ap_paterno, 
+ap_materno, 
+curp
 FROM alumnos
 WHERE LENGTH(curp) = 18 AND
 ciudad = 'queretaro' AND
