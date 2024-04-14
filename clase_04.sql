@@ -8,7 +8,7 @@ ENCLOSED BY ''
 LINES TERMINATED BY '\r\n';
 
 
-INSERT INTO tabla <SELECT>;
+INSERT INTO tabla consulta;
 Inserciones a través de una consulta.
 
 INSERT INTO tabla VALUES (valores);
