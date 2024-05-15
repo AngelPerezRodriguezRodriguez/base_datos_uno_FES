@@ -1,0 +1,174 @@
+Lenguaje de Definición de Datos
+
+* Muestra las B.D. del servidor
+* Crea una primera B.D.
+* Crea una segunda B.D.
+* Usa la primera B.D.
+* Muestra las tablas de la primera B.D.
+* Muestra las tablas de la segunda B.D. sin usarla
+* Muestra la B.D. que estás ocupando
+
+-----------------------------------------------------------------------------------------------------------------------
+
+* Muestra todos los campos y sus valores de la tabla actor de la B.D. sakila
+* Crea un tercera B.D.
+* Crea la misma tercera B.D. si no existe
+* Elimina la tercera B.D.
+
+Usando la primera B.D.
+
+* Muestra las tablas
+* Crea la tabla escritor:
+	id_escritor: entero, not null, autoincremental, llave primaria
+    nombre: cadena de 50, not null
+    apellido: cadena de 50, not null
+    direccion: cadena de 100, null
+    alias: cadena de 30, null, predeterminado 'NA'
+* Crea la tabla libro:
+	id_libro: entero, not null, autoincremental, llave primaria
+    id_escritor: entero, not null
+    titulo: cadena de 100, null
+    contenido: texto, null
+    libro --> escritor, id_escritor
+    eliminación y actualización en cascada
+
+* Muestra los índices de la tabla escritor
+* Muestra los índices de la tabla libro
+* Muestra los constrains de las columnas de la tabla escritor de tres formas distintas
+* Muestra los constrains de las columnas de la tabla libro de tres formas distintas
+* Muestra la sintaxis con la que fue creada la tabla escritor
+* Muestra la sintaxis con la que fue creada la tabla libro
+* Muestra las tablas de la primera B.D.
+
+* Crea la tabla escritor_02 con la misma estructura que la tabla escritor
+* Crea la tabla temporal escritor_03 con la misma estructura que la tabla escritor
+* Muestra las tablas de la primera B.D.
+* Muestra los constrains de las columnas de la tabla escritor_03 de tres formas distintas
+* Muestra todos los campos y sus valores de la tabla escritor_03
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Usando la primera B.D.
+
+* Muestra los índices de escritor
+* Muestra los índices de escritor_02
+* Crea un índice único uq_alias sobre la tabla escritor con la columna alias
+* Crea un índice único uq_alias sobre la tabla escritor_02 con la columna alias
+* Elimina el índice único uq_alias sobre la tabla escritor
+
+* Muestra los constrains de las columnas de la tabla escritor_02 de tres formas distintas
+* Agrega un índice in_nombre sobre la tabla escritor_02 con la columna nombre y apellido
+* Elimina el índice in_nombre sobre la tabla escritor_02
+
+* Elimina la llave primaria sobre la tabla escritor_02
+* Modifica la columna id_escritor: entero, not null; sobre la tabla escritor_02
+* Elimina la llave primaria sobre la tabla escritor_02
+* Modifica la columna id_escritor: entero, not null, autoincremental, llave primaria; sobre la tabla escritor_02
+
+* Agrega la columna ciudad: cadena de 30, null; sobre la tabla escritor_02
+* Cambia la columna apellido por apellido_paterno: cadena de 50, not null; 
+  agrega la columna apellido_materno: cadena de 50, null después de apellido_paterno; sobre la tabla escritor_02
+
+* Agrega la columna cd: cadena de 3, null; al principio de las columnas
+* Modifica la columna ciudad: cadena de 50, null; elimina la columna cd; sobre la tabla escritor_02
+* Coloca la columna ciudad después de la columna direccion
+
+* Renombra la tabla escritor_02 a escritor_dos
+* Mueve la tabla escritor_dos a la segunda B.D.
+* Copia la estructura de la tabla escritor_dos a la primera B.D.
+* Muestra los constrains de las columnas de la tabla escritor_dos de la primera B.D. de tres formas distintas
+* Muestra los constrains de las columnas de la tabla escritor_dos de la segunda B.D. sin usarla, de tres formas distintas
+
+Lenguaje de Manipulación de Datos
+
+* Muestra todos los campos y sus valores de la tabla escritor
+* Inserta, con la primera forma, en escritor los siguientes valores:
+	null, Carlos, Monsivais, CDMX, Monsi
+* Inserta, con la primera forma, en escritor los siguientes valores:
+	Carlos, Monsivais, CDMX, Monsi
+* Inserta, con la primera forma, en escritor los siguientes valores:
+	null, null, Monsivais, CDMX, Monsi
+* Inserta, con la primera forma, en escritor los siguientes valores:
+	null, Gabriel, Garcia, null, null
+* Muestra todos los campos y sus valores de la tabla escritor
+
+* Muestra todos los campos y sus valores de la tabla libro
+* Inserta, con la primera forma, en libro los siguientes valores:
+	null, 1, Confrontaciones, null
+	null, 2, 100 Años de Soledad, null
+	null, 2, El Amor en Tiempos de Colera, Algo
+* Inserta, con la primera forma, en libro los siguientes valores:
+	null, 100, Equis, null	
+
+* Muestra todos los campos y sus valores de la tabla escritor
+* Elimina de la tabla escritor la tupla donde id_escritor es igual a 1
+* Actualiza en escritor con id_escritor igual a 200, la tupla donde id_escritor es igual a 2
+
+* Juega actualizando los valores de los campos
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Usando la primera B.D.
+
+* Muestra todos los campos y sus valores de la tabla escritor
+* Elimina de la tabla escritor todas las tuplas donde id_escritor sea diferente de 200
+
+* Inserta, de la segunda forma, en escritor, usando las columnas: id_escritor, nombre, apellido; 
+  los siguientes valores:
+	null, Juan, Rulfo
+	null, Inés, De la Cruz
+* Inserta, de la segunda forma, en escritor, usando las columnas: apellido, nombre; 
+  los siguientes valores:
+	Poniatowska, Elena
+	Azuela, Mariano
+* Inserta, de la segunda forma, en escritor, usando las columnas: alias, apellido, nombre, id_escritor, direccion; 
+  los siguientes valores:
+	Diablo, Velazco, Xavier, 400, CDMX
+	Yo Robot, Asimov, Issac, null, CA
+
+Inserta los valores del documento csv escritores_2459, dado por el profesor, en la tabla escritor
+
+* Inserta, de la tercera forma, en escritor los siguientes valores:
+	nombre con valor 'Manuel', apellido con valor 'Acuña', direccion con valor 'CDMX', alias con valor ''
+
+* Actualiza en la tabla escritor con la columna direccion con valor '', todas las tuplas
+* Actualiza en la tabla escritor con la columna direccion con valor null, todas las tuplas 
+* Actualiza en la tabla escritor con la columna direccion con valor 'MEX', alias con valor 'NO SE'; 
+  todas las tuplas donde id_escritor es mayor e igual que 300 y menor o igual que 305
+* Actualiza en la tabla escritor con las columnas
+  nombre con valor 'Manuelito', alias con valor 'Macuña', apellido con valor 'Acuña Acuña', direccion con valor 'MX';
+  todas las tuplas donde id_escritor es igual a 403
+
+* Muestra las tablas de la primera B.D.
+* Crea la tabla escritor_temp con la misma estructura de la tabla escritor
+* Muestra todos los campos y sus valores de la tabla escritor_temp
+* Inserta en la tabla escritor_temp los valores de la tabla escritor
+
+* Muestra todos los campos y sus valores de la tabla escritor
+* Elimina de la tabla escritor todas las tuplas donde alias tiene el valor 'NO SE'
+* Elimina de la tabla escritor todas las tuplas
+* Muestra todos los campos y sus valores de la tabla libro
+* Inserta, de la segunda forma, en escritor, usando las columnas: id_escritor, nombre, apellido; 
+  los siguientes valores:
+	null, Juan, Rulfo
+
+* Vacía la tabla, reinicia los AI e índices de la tabla escritor
+
+* Inserta en la tabla escritor los valores de la tabla escritor_temp
+* Elimina de la tabla escritor_temp todas las tuplas 
+* Inserta, de la segunda forma, en escritor_temp, usando las columnas: id_escritor, nombre, apellido; 
+  los siguientes valores:
+	null, Juan, Rulfo
+
+* Vacía la tabla, reinicia los AI e índices de la tabla escritor_temp
+* Inserta, de la segunda forma, en escritor, usando las columnas: id_escritor, nombre, apellido; 
+  los siguientes valores:
+	null, Juan, Rulfo
+
+* Actualiza en escritor con la columna direccion con valor '', la tupla donde id_escritor es igual a 404
+* Muestra todos los campos y sus valores de la tabla escritor donde direccion es igual a ''
+* Muestra todos los campos y sus valores de la tabla escritor donde direccion es igual a 'NA'
+* Muestra todos los campos y sus valores de la tabla escritor donde direccion es igual a null
+* Muestra todos los campos y sus valores de la tabla escritor donde direccion es igual a 'NA' o alias es igual a 'NA' 
+
+-----------------------------------------------------------------------------------------------------------------------

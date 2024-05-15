@@ -1,0 +1,56 @@
+-- LÍSTAME LOS SALONES Y A QUÉ CURSO, GRADO Y NIVEL PERTENECEN (con y sin join)
+
+-- LÍSTAME TODOS LOS SALONES Y A QUÉ CURSO, GRADO Y NIVEL PERTENECEN (con y sin join)
+	-- Haz que parezca un reporte
+
+-- LÍSTAME LOS SALONES DE TERCERO DE SECUNDARIA (con y sin join)
+	-- Usa la sentencia anterior
+
+
+-- LÍSTAME LA INFORMACIÓN DE MIS PAGOS (con y sin join) (con la segunda y tercera forma del join)
+	-- Haz que parezca un reporte
+	-- Pagos de mujeres menor a 2,000 (con y sin consultas anidadas)
+
+-- LÍSTAME LA INFORMACIÓN DE MIS PAGOS DE TODOS MIS ALUMNOS (todos los pagos de los alumnos)
+
+-- LÍSTAME LOS ALUMNOS QUE NO TENGAN NINGÚN PAGO
+
+-- LÍSTAME EL PAGO TOTAL DE TODOS LOS ALUMNOS REGISTRADOS
+	-- Remplaza las valores null
+
+
+
+-- LÍSTAME LOS SALONES Y A QUÉ NIVEL PERTENECEN
+
+-- LÍSTAME TODOS LOS SALONES AUNQUE NO TENGAN NIVEL VÁLIDO
+-- LÍSTAME TODOS LOS SALONES QUE NO TENGAN NIVEL VÁLIDO
+
+-- LÍSTAME TODOS LOS NIVELES AUNQUE NO TENGAN SALÓN VÁLIDO
+-- LÍSTAME TODOS LOS NIVELES QUE NO TENGAN SALÓN VÁLIDO
+
+
+-- LÍSTAME TODOS LOS GRADOS Y TODOS LOS NIVELES (señala cuál es grado y cuál es un nivel)
+
+-- LÍSTAME TODAS LAS PERSONAS (señala el tipo de persona de cada uno)
+	-- Filtra solo las personas que se apellidan 'AGUILAR' (con y sin consulta anidada)
+	-- Haz un conteo del número de personas por sexo
+	-- El total de pagos de todas las personas (remplaza los valores null) (solo los pagos mayores a 20,000)
+
+-- CREA UNA VISTA DE PERSONAS
+	-- Úsala para las sentencias del listado de todas las personas
+
+-- CREA UNA VISTA DEL TOTAL DE PAGOS DE TODAS LAS PERSONAS SOLO CON PAGOS MAYORES A 20,000
+
+-- CREA UNA VISTA DE LOS ALUMNOS y a partir de esta
+	-- Crea una vista de solo mujeres
+	-- Crea una vista de solo hombres
+	-- Elimina la vista
+
+
+-- LÍSTAME TODOS LOS SALONES AUNQUE NO TENGAN NIVEL VÁLIDO Y TODOS LOS NIVELES AUNQUE NO TENGAN SALÓN VALIDO
+
+-- LÍSTAME TODOS LOS SALONES QUE NO TENGAN NIVEL VÁLIDO Y TODOS LOS NIVELES QUE NO TENGAN SALÓN VÁLIDO
+
+
+-- LÍSTAME EL NÚMERO DE ALUMNOS POR SEXO EN CADA CICLO ESCOLAR (analiza la tabla alumno_salon)
+	-- Usa una tabla pivote
