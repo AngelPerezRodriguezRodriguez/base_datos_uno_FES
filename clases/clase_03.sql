@@ -33,7 +33,6 @@ ALTER TABLE escritor_02
 DROP INDEX nombre_completo_idx;
 
 SHOW INDEX FROM escritor_02;
-
 /*
 Podemos eliminar el index con un DROP a través de UN ALTER,
 como lo hicimos en el ejemplo, o con un DROP directamente:
@@ -56,9 +55,10 @@ CHANGE
 
 
 /*
+Error, no podemos eliminar una PK porque es un objeto AUTO_INCREMENT:
+
 ALTER TABLE escritor_02 
 DROP PRIMARY KEY;
-Error, no podemos eliminar una PK porque es un objeto AUTO_INCREMENT
 */
 
 ALTER TABLE escritor_02 
@@ -69,7 +69,7 @@ DESC escritor_02;
 
 ALTER TABLE escritor_02 
 DROP PRIMARY KEY;
--- Para finalmente poder eliminar la PK
+-- ... para finalmente poder eliminar la PK
 
 DESC escritor_02;
 
@@ -105,11 +105,11 @@ DROP COLUMN cd,
 MODIFY COLUMN ciudad VARCHAR(30) NULL;
 
 DESC escritor_02;
-
 /*
+Error de sintaxis al eliminar la columna directamente con un DROP:
+
 DROP COLUMN cd 
 ON escritor_02; 
-Error de sintaxis al eliminar la columna directamente con un DROP
 */
 
 ALTER TABLE escritor_02
@@ -120,8 +120,8 @@ DESC escritor_02;
 
 
 SHOW INDEX FROM libro;
--- No nos muestra la llave foránea. Para poder verla tenemos
--- que realizar una consulta del diccionario de datos.
+-- No nos muestra la llave foránea. Para poder verla
+-- tenemos que realizar una consulta del diccionario de datos.
 
 SELECT
 	TABLE_NAME,
@@ -134,13 +134,17 @@ FROM
     -- diccionario de datos: information_schema
     -- columna: key_column_usage
 WHERE
-	referenced_table_schema = 'biblioteca' AND 
-    referenced_table_name = 'escritor';
--- Si quisiéramos eliminar la referencia tenemos que borrar el índice llamado libro_ibfk_1
--- nombre dado por el S.G.B.D. cuando creamos la tabla
+	referenced_table_schema = 'biblioteca' 
+		AND referenced_table_name = 'escritor';
+	-- Si quisiéramos eliminar la referencia tenemos que borrar el índice llamado libro_ibfk_1
+	-- nombre dado por el S.G.B.D. cuando creamos la tabla
 
-SELECT * FROM information_schema.TABLES
-WHERE table_schema = 'biblioteca';
+SELECT 
+    *
+FROM
+    information_schema.TABLES
+WHERE
+    table_schema = 'biblioteca';
 
 SHOW TABLES FROM biblioteca;
 -- Estas últimas dos consultas son las mismas
@@ -180,33 +184,47 @@ SHOW TABLES FROM biblioteca2024;
 
 SELECT DATABASE();
 
-SELECT * FROM escritor;
+SELECT 
+    *
+FROM
+    escritor;
 
 DESC escritor;
 
 INSERT INTO escritor VALUES
 (NULL, 'Carlos', 'Monsiváis', 'CDMX', 'MONSO');
 
-SELECT * FROM escritor;
+SELECT 
+    *
+FROM
+    escritor;
 
 INSERT INTO escritor VALUES
 (NULL, 'Gabriel', 'García', NULL, NULL);
 
-SELECT * FROM escritor;
+SELECT 
+    *
+FROM
+    escritor;
 
 /*
+Error, el número de campos utilizados no es el mismo que el requerido:
+
 INSERT INTO escritor VALUES
 ('Carlos', 'Monsiváis', 'CDMX', 'Monsi');
-Error, el número de campos utilizados no es el mismo que el requerido
+
+Error, el campo 'nombre' es NOT NULL:
 
 INSERT INTO escritor VALUES
 (null, null, 'Monsiváis', 'CDMX', 'Monsi');
-Error, el campo 'nombre' es NOT NULL
 */
 
 
 
-SELECT * FROM libro;
+SELECT 
+    *
+FROM
+    libro;
 
 DESC libro;
 
@@ -215,25 +233,45 @@ INSERT INTO libro VALUES
 (NULL, 2, '100 Años de Soledad', NULL),
 (NULL, 2, 'El Amor en Tiempos de Cólera', 'Algo');
 
-SELECT * FROM libro;
+SELECT 
+    *
+FROM
+    libro;
 
 /*
+Error, no podemos insertar un hijo que no tenga un padre:
+
 INSERT INTO libro VALUES
 (null, 100, 'Equis', null);
-Error, no podemos insertar un hijo que no tenga un padre
 */
 
 DELETE FROM escritor 
-WHERE id_escritor = 1;
+WHERE
+    id_escritor = 1;
 -- Aplicación de la integridad referencial en cascada
 
-SELECT * FROM escritor;
+SELECT 
+    *
+FROM
+    escritor;
 
-SELECT * FROM libro;
+SELECT 
+    *
+FROM
+    libro;
 
-UPDATE escritor SET id_escritor = 200 
-WHERE id_escritor = 2;
+UPDATE escritor 
+SET 
+    id_escritor = 200
+WHERE
+    id_escritor = 2;
 
-SELECT * FROM escritor;
+SELECT 
+    *
+FROM
+    escritor;
 
-SELECT * FROM libro;
+SELECT 
+    *
+FROM
+    libro;
